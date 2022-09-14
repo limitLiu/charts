@@ -1,5 +1,5 @@
-import { createRenderer } from "../../src/Core/renderer";
-import { createDiv, mount } from "../utils";
+import { createRenderer } from '../../src/Core/renderer';
+import { createDiv, mount } from '../utils';
 
 describe('transform', () => {
   test('Renderer save restore', () => {
@@ -24,7 +24,9 @@ describe('transform', () => {
     });
     mount(createDiv(), renderer.node());
 
-    expect((r1.parentNode as SVGElement).getAttribute('transform')).toBe('translate(200, 100) rotate(60) scale(2, 3)');
+    expect((r1.parentNode as SVGElement).getAttribute('transform')).toBe(
+      'translate(200, 100) rotate(60) scale(2, 3)',
+    );
     expect((r2.parentNode as SVGElement).getAttribute('transform')).toBeNull();
-  })
+  });
 });

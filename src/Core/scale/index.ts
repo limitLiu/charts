@@ -1,0 +1,10 @@
+export { createLinear, interpolateNumber } from './linear';
+export { createTime } from './time';
+export { createLog } from './log';
+export { createIdentity } from './identity';
+export { createOrdinal } from './ordinal';
+export { createBand } from './band';
+export { createPoint } from './point';
+export { createQuantize } from './quantize';
+export { createQuantile } from './quantile';
+export { createThreshold } from './threshold';

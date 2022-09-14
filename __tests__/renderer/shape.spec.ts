@@ -1,6 +1,6 @@
-import { createRenderer } from "../../src/Core/renderer";
-import { shape } from "../../src/Core/shape";
-import { createDiv, getAttributes, mount } from "../utils";
+import { createRenderer } from '../../src/Core/renderer';
+import { shape } from '../../src/Core/renderer/shape';
+import { createDiv, getAttributes, mount } from '../utils';
 
 describe('shape', () => {
   test('shape(name, context, attributes) create SVG elements', () => {
@@ -85,8 +85,8 @@ describe('shape', () => {
       y: 100,
       text: 'Renderer',
       fill: 'red',
-      fontFamily: "PingFangSC-Regular, sans-serif",
-      fontSize: 25
+      fontFamily: 'PingFangSC-Regular, sans-serif',
+      fontSize: 25,
     });
 
     expect(text.tagName).toBe('text');
@@ -96,12 +96,7 @@ describe('shape', () => {
 
   test('path() create path elements', () => {
     const renderer = createRenderer(400, 400);
-    const d = [
-      ['M', 10, 10],
-      ['L', 100, 100],
-      ['L', 100, 10],
-      ['Z'],
-    ];
+    const d = [['M', 10, 10], ['L', 100, 100], ['L', 100, 10], ['Z']];
     const path = renderer.path({
       d,
       stroke: 'yellow',
@@ -112,5 +107,4 @@ describe('shape', () => {
     mount(createDiv(), renderer.node());
     expect(path.getAttribute('d')).toBe('M 10 10 L 100 100 L 100 10 Z');
   });
-
 });

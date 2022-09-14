@@ -1,5 +1,5 @@
-import { createRenderer } from "../../src/Core/renderer";
-import { createDiv, mount } from "../utils";
+import { createRenderer } from '../../src/Core/renderer';
+import { createDiv, mount } from '../utils';
 
 describe('createRenderer', () => {
   test('createContext(width, height) create context', () => {
@@ -15,5 +15,5 @@ describe('createRenderer', () => {
     expect(group?.parentNode).toBe(node);
 
     mount(createDiv(), node);
-  })
+  });
 });

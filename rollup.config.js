@@ -1,5 +1,5 @@
 import resolve from '@rollup/plugin-node-resolve';
-import typescript from "@rollup/plugin-typescript";
+import typescript from '@rollup/plugin-typescript';
 
 export default {
   input: 'src/index.ts',
@@ -16,10 +16,7 @@ export default {
       file: 'dist/charts.js',
       name: 'charts',
       format: 'umd',
-    }
+    },
   ],
-  plugins: [
-    resolve(),
-    typescript()
-  ]
+  plugins: [resolve(), typescript()],
 };

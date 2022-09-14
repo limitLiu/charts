@@ -2,5 +2,5 @@
 module.exports = {
   testMatch: ['**/__tests__/**/*.spec.ts'],
   runner: 'jest-electron/runner',
-  testEnvironment: 'jest-electron/environment'
+  testEnvironment: 'jest-electron/environment',
 };

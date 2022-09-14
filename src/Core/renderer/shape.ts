@@ -1,7 +1,11 @@
-import { createSVGElement, mount, applyAttributes } from './utils';
-import { Context } from "./types";
+import { createSVGElement, mount, applyAttributes } from '../utils';
+import { Context } from '../types';
 
-export function shape(tag: keyof SVGElementTagNameMap, context: Context, attributes: Record<string, any>) {
+export function shape(
+  tag: keyof SVGElementTagNameMap,
+  context: Context,
+  attributes: Record<string, any>,
+) {
   const { group } = context;
   const element = createSVGElement(tag);
   applyAttributes(element, attributes);
@@ -33,7 +37,7 @@ export function rect(context: Context, attributes: Record<string, any>) {
     width: Math.abs(width),
     height: Math.abs(height),
     x: width > 0 ? x : x + width,
-    y: height > 0 ? y : y + height
+    y: height > 0 ? y : y + height,
   });
 }
 
@@ -50,7 +54,9 @@ export function ring(context: Context, attributes: Record<string, any>) {
     fill: 'transparent',
     stroke: stroke || fill,
     strokeWidth,
-    cx, cy, r: r1
+    cx,
+    cy,
+    r: r1,
   });
 
   const ring = circle(context, {

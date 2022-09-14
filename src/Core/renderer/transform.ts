@@ -1,9 +1,9 @@
-import { createSVGElement, mount, applyTransform } from "./utils";
-import { Context, TransformFn } from "./types";
+import { createSVGElement, mount, applyTransform } from '../utils';
+import { Context, TransformFn } from '../types';
 
 export function transform(tag: TransformFn, context: Context, ...params: any[]) {
   const { group } = context;
-  applyTransform(group, `${tag}(${params.join(', ')})`);
+  group && applyTransform(group, `${tag}(${params.join(', ')})`);
 }
 
 export function translate(context: Context, tx: number, ty: number) {
@@ -21,12 +21,14 @@ export function scale(context: Context, sx: number, sy: number) {
 export function save(context: Context) {
   const { group } = context;
   const newG = createSVGElement('g');
-  mount(group, newG);
+  group && mount(group, newG);
   context.group = newG as SVGGElement;
 }
 
 export function restore(context: Context) {
   const { group } = context;
-  const { parentNode } = group;
-  context.group = parentNode as SVGGElement;
+  if (group) {
+    const { parentNode } = group;
+    context.group = parentNode as SVGGElement;
+  }
 }
