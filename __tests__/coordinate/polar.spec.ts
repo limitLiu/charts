@@ -1,4 +1,4 @@
-import { cartesian, createCoordinate, polar } from "../../src/core/coordinate";
+import { cartesian, createCoordinate, polar } from '../../src/charts/coordinate';
 
 describe('polar', () => {
   test('polar()', () => {
@@ -7,12 +7,15 @@ describe('polar', () => {
       height: 200,
       x: 0,
       y: 0,
-      transforms: [polar({
-        startAngle: -Math.PI / 2,
-        endAngle: (Math.PI / 2) * 3,
-        innerRadius: 0,
-        outerRadius: 1,
-      }), cartesian(void 0)],
+      transforms: [
+        polar({
+          startAngle: -Math.PI / 2,
+          endAngle: (Math.PI / 2) * 3,
+          innerRadius: 0,
+          outerRadius: 1,
+        }),
+        cartesian(void 0),
+      ],
     });
 
     expect(c1.fn([0, 1])).toEqual([150, 100]);
@@ -25,14 +28,12 @@ describe('polar', () => {
       x: 0,
       y: 0,
       transforms: [
-        polar(
-          {
-            startAngle: Math.PI / 2,
-            endAngle: (Math.PI * 3) / 2,
-            innerRadius: 0.2,
-            outerRadius: 0.8,
-          },
-        ),
+        polar({
+          startAngle: Math.PI / 2,
+          endAngle: (Math.PI * 3) / 2,
+          innerRadius: 0.2,
+          outerRadius: 0.8,
+        }),
         cartesian(void 0),
       ],
     });

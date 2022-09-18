@@ -1,4 +1,4 @@
-import { createLinear, interpolateNumber } from '../../src/core/scale';
+import { createLinear, interpolateNumber } from '../../src/charts/scale';
 
 function nice(domain: number[], niceDomain: number[], tickCount: number) {
   const scale = createLinear({
@@ -6,13 +6,13 @@ function nice(domain: number[], niceDomain: number[], tickCount: number) {
     range: [0, 1],
     interpolate: interpolateNumber,
   });
-  scale.nice(tickCount);
-  const [r0, r1] = niceDomain.map(scale);
+  scale.nice?.(tickCount);
+  const [r0, r1] = niceDomain.map(scale.fn);
   return r0 === 0 && r1 === 1;
 }
 
 function ticks(domain: number[], tickCount: number) {
-  return createLinear({ domain, range: [0, 1] }).ticks(tickCount);
+  return createLinear({ domain, range: [0, 1] }).ticks?.(tickCount);
 }
 
 describe('createLinear', function () {
@@ -22,11 +22,11 @@ describe('createLinear', function () {
       range: [0, 100],
       interpolate: interpolateNumber,
     });
-    expect(s(0)).toBe(0);
-    expect(s(0.3)).toBe(30);
-    expect(s(0.5)).toBe(50);
-    expect(s(0.7)).toBe(70);
-    expect(s(1)).toBe(100);
+    expect(s.fn(0)).toBe(0);
+    expect(s.fn(0.3)).toBe(30);
+    expect(s.fn(0.5)).toBe(50);
+    expect(s.fn(0.7)).toBe(70);
+    expect(s.fn(1)).toBe(100);
   });
 
   test('createLinear(options) uses custom interpolate', () => {
@@ -39,9 +39,9 @@ describe('createLinear', function () {
       },
     });
 
-    expect(s(0)).toBe('a');
-    expect(s(1)).toBe('z');
-    expect(s(0.5)).toBe('m');
+    expect(s.fn(0)).toBe('a');
+    expect(s.fn(1)).toBe('z');
+    expect(s.fn(0.5)).toBe('m');
   });
 
   test('scale.nice(tickCount) extends domain for better ticks', () => {

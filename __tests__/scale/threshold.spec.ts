@@ -1,4 +1,4 @@
-import { createThreshold } from '../../src/core/scale';
+import { createThreshold } from '../../src/charts/scale';
 
 describe('createThreshold', () => {
   test('createThreshold(options) finds intervals based on domain and returns corresponding value in range', () => {
@@ -7,11 +7,11 @@ describe('createThreshold', () => {
       range: ['a', 'b', 'c'],
     });
 
-    expect(s(0)).toBe('a');
-    expect(s(0.2)).toBe('a');
-    expect(s(0.4)).toBe('b');
-    expect(s(0.6)).toBe('b');
-    expect(s(0.8)).toBe('c');
-    expect(s(1)).toBe('c');
+    expect(s.fn(0)).toBe('a');
+    expect(s.fn(0.2)).toBe('a');
+    expect(s.fn(0.4)).toBe('b');
+    expect(s.fn(0.6)).toBe('b');
+    expect(s.fn(0.8)).toBe('c');
+    expect(s.fn(1)).toBe('c');
   });
 });

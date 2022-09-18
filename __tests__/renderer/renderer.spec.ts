@@ -1,4 +1,4 @@
-import { createRenderer } from '../../src/Core/renderer';
+import { createRenderer } from '../../src/charts/renderer';
 import { createDiv, mount } from '../utils';
 
 describe('createRenderer', () => {

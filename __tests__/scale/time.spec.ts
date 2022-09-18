@@ -1,4 +1,4 @@
-import { createTime, interpolateNumber } from '../../src/core/scale';
+import { createTime, interpolateNumber } from '../../src/charts/scale';
 
 describe('createTime', () => {
   test('createTime(options) returns scale map Date linearly', () => {
@@ -8,8 +8,8 @@ describe('createTime', () => {
       interpolate: interpolateNumber,
     });
 
-    expect(s(new Date(2000, 0, 1, 5))).toBe(200);
-    expect(s(new Date(2000, 0, 1, 16))).toBe(640);
-    expect(s(new Date(2000, 0, 2))).toBe(960);
+    expect(s.fn(new Date(2000, 0, 1, 5))).toBe(200);
+    expect(s.fn(new Date(2000, 0, 1, 16))).toBe(640);
+    expect(s.fn(new Date(2000, 0, 2))).toBe(960);
   });
 });

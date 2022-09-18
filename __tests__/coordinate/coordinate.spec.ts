@@ -1,4 +1,4 @@
-import { createCoordinate } from "../../src/core/coordinate";
+import { createCoordinate } from '../../src/charts/coordinate';
 
 describe('coordinate', () => {
   test('createCoordinate(options) returns a identity function without transforms', () => {

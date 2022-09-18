@@ -1,5 +1,5 @@
-import { createCoordinate } from "../../src/core/coordinate";
-import { cartesian } from "../../src/core/coordinate";
+import { createCoordinate } from '../../src/charts/coordinate';
+import { cartesian } from '../../src/charts/coordinate';
 
 describe('cartesian', () => {
   test('cartesian()', () => {

@@ -1,4 +1,4 @@
-import { createLog, interpolateNumber } from '../../src/core/scale';
+import { createLog, interpolateNumber } from '../../src/charts/scale';
 
 function nice(domain: number[], niceDomain: number[], base: number) {
   const scale = createLog({
@@ -7,15 +7,15 @@ function nice(domain: number[], niceDomain: number[], base: number) {
     base,
     interpolate: interpolateNumber,
   });
-  scale.nice();
-  const [r0, r1] = niceDomain.map(scale);
+  scale.nice?.();
+  const [r0, r1] = niceDomain.map(scale.fn);
   return r0 === 0 && r1 === 1;
 }
 
 function ticks(domain: number[], base: number, tickCount: number) {
   const scale = createLog({ domain, base, range: [0, 1] });
-  scale.nice();
-  return scale.ticks(tickCount);
+  scale.nice?.();
+  return scale.ticks?.(tickCount);
 }
 
 describe('createLog', () => {
@@ -26,9 +26,9 @@ describe('createLog', () => {
       interpolate: interpolateNumber,
     });
 
-    expect(s(1)).toStrictEqual(0);
-    expect(s(2)).toBeCloseTo(0.301, 3);
-    expect(s(5)).toBeCloseTo(0.699, 3);
+    expect(s.fn(1)).toStrictEqual(0);
+    expect(s.fn(2)).toBeCloseTo(0.301, 3);
+    expect(s.fn(5)).toBeCloseTo(0.699, 3);
   });
 
   test('scale.nice(base) extends domain for better ticks', () => {

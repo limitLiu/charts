@@ -1,4 +1,4 @@
-import { createQuantile } from '../../src/core/scale';
+import { createQuantile } from '../../src/charts/scale';
 
 describe('createQuantile', () => {
   test('createQuantile(options) finds right interval based on rank and returns corresponding value in range', () => {
@@ -7,13 +7,13 @@ describe('createQuantile', () => {
       range: ['a', 'b', 'c', 'd'],
     });
 
-    expect(s(3)).toBe('a');
-    expect(s(7.1)).toBe('a');
-    expect(s(8)).toBe('b');
-    expect(s(8.9)).toBe('b');
-    expect(s(9)).toBe('b');
-    expect(s(13)).toBe('c');
-    expect(s(14.9)).toBe('d');
-    expect(s(20)).toBe('d');
+    expect(s.fn(3)).toBe('a');
+    expect(s.fn(7.1)).toBe('a');
+    expect(s.fn(8)).toBe('b');
+    expect(s.fn(8.9)).toBe('b');
+    expect(s.fn(9)).toBe('b');
+    expect(s.fn(13)).toBe('c');
+    expect(s.fn(14.9)).toBe('d');
+    expect(s.fn(20)).toBe('d');
   });
 });

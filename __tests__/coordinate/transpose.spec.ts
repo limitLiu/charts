@@ -1,4 +1,4 @@
-import { cartesian, createCoordinate, transpose } from "../../src/core/coordinate";
+import { cartesian, createCoordinate, transpose } from '../../src/charts/coordinate';
 
 describe('transpose', () => {
   test('transpose()', () => {

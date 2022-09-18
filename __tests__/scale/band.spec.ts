@@ -1,4 +1,4 @@
-import { createBand } from '../../src/core/scale';
+import { createBand } from '../../src/charts/scale';
 
 describe('createBand', () => {
   test('createBand(options) returns scale mapping discrete domain to continuous range', () => {
@@ -7,10 +7,10 @@ describe('createBand', () => {
       range: [0, 32],
       padding: 0.2,
     });
-    expect(s('a')).toBe(2);
-    expect(s('b')).toBe(12);
-    expect(s('c')).toBe(22);
-    expect(s.bandWidth()).toBe(8);
-    expect(s.step()).toBe(10);
+    expect(s.fn('a')).toBe(2);
+    expect(s.fn('b')).toBe(12);
+    expect(s.fn('c')).toBe(22);
+    expect(s.bandWidth?.()).toBe(8);
+    expect(s.step?.()).toBe(10);
   });
 });
