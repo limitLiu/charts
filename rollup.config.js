@@ -1,22 +1,22 @@
+import babel from '@rollup/plugin-babel';
 import resolve from '@rollup/plugin-node-resolve';
-import typescript from '@rollup/plugin-typescript';
 
 export default {
-  input: 'src/index.ts',
+  input: './src/index.bs.js',
   output: [
     {
-      file: 'lib/charts.js',
+      file: 'cjs/sparrow.js',
       format: 'cjs',
     },
     {
-      file: 'esm/charts.js',
+      file: 'esm/sparrow.js',
       format: 'es',
     },
     {
-      file: 'dist/charts.js',
-      name: 'charts',
+      file: 'dist/sparrow.min.js',
+      name: 'sparrow',
       format: 'umd',
     },
   ],
-  plugins: [resolve(), typescript()],
+  plugins: [resolve(), babel()],
 };

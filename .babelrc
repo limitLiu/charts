@@ -6,8 +6,7 @@
         "useBuiltIns": "entry",
         "corejs": "3"
       }
-    ],
-    "@babel/preset-typescript"
+    ]
   ],
   "exclude": "node_modules/**"
 }

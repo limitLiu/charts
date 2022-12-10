@@ -1,0 +1,1 @@
+let drawRedRect = DrawRedRect.drawRedRect
